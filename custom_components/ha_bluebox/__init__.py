@@ -1,15 +1,15 @@
 """
-Custom integration to integrate integration_blueprint with Home Assistant.
+Custom integration to integrate ha_bigbox with Home Assistant.
 
 For more details about this integration, please refer to
-https://github.com/ludeeus/integration_blueprint
+https://github.com/sognen/ha_bigbox
 """
 
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, Platform
+from homeassistant.const import CONF_PASSWORD, CONF_URL, CONF_USERNAME, Platform
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.loader import async_get_loaded_integration
 
@@ -21,6 +21,10 @@ if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
 
     from .data import IntegrationBlueprintConfigEntry
+"""
+# CS: This is where we need to setup the platform,
+# e.g., PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.MEDIA_PLAYER, Platform.BUTTON]
+"""  # noqa: E501
 
 PLATFORMS: list[Platform] = [
     Platform.SENSOR,
@@ -40,8 +44,10 @@ async def async_setup_entry(
     )
     entry.runtime_data = IntegrationBlueprintData(
         client=IntegrationBlueprintApiClient(
+            # CS: This is where we put the URL
             username=entry.data[CONF_USERNAME],
             password=entry.data[CONF_PASSWORD],
+            url=entry.data[CONF_URL],
             session=async_get_clientsession(hass),
         ),
         integration=async_get_loaded_integration(hass, entry.domain),
