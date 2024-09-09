@@ -7,7 +7,7 @@ from typing import Any
 from homeassistant.backports.enum import StrEnum
 from homeassistant.components.media_player import MediaClass, MediaType
 
-from custom_components.ha_bluebox import binary_sensor
+from custom_components.ha_bigbox import binary_sensor
 
 LOGGER: Logger = getLogger(__package__)
 
