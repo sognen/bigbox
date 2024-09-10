@@ -55,15 +55,15 @@ class IntegrationBlueprintApiClient:
         """Get data from the API."""
         return await self._api_wrapper(
             method="get",
-            url="https://jsonplaceholder.typicode.com/posts/1",
+            url="http://192.168.1.106:8090/statemanager",
         )
 
     async def async_set_title(self, value: str) -> Any:
         """Get data from the API."""
         return await self._api_wrapper(
             method="patch",
-            url="https://jsonplaceholder.typicode.com/posts/1",
-            data={"title": value},
+            url="http://192.168.1.106:8090/statemanager",
+            data={"BigBoxCurrentTheme": value},
             headers={"Content-type": "application/json; charset=UTF-8"},
         )
 

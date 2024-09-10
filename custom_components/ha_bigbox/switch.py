@@ -19,7 +19,12 @@ ENTITY_DESCRIPTIONS = (
     SwitchEntityDescription(
         key="ha_bigbox",
         name="Integration Switch",
-        icon="mdi:format-quote-close",
+        icon="mdi:account-cowboy-hat",
+    ),
+    SwitchEntityDescription(
+        key="xha_bigbox",
+        name="xIntegration Switch",
+        icon="mdi:account-cowboy-hat",
     ),
 )
 

@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
 ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
-        key="ha_bigbox",
-        name="Integration Sensor",
-        icon="mdi:format-quote-close",
+        key="BigBoxCurrentTheme",
+        name="Current Theme",
+        icon="mdi:account-cowboy-hat",
     ),
 )
 
@@ -54,4 +54,4 @@ class IntegrationBlueprintSensor(IntegrationBlueprintEntity, SensorEntity):
     @property
     def native_value(self) -> str | None:
         """Return the native value of the sensor."""
-        return self.coordinator.data.get("body")
+        return self.coordinator.data.get("BigBoxCurrentTheme")

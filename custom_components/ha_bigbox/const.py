@@ -1,13 +1,8 @@
 """Constants for ha_bigbox."""
 
 from logging import Logger, getLogger
-from random import gammavariate
-from typing import Any
 
 from homeassistant.backports.enum import StrEnum
-from homeassistant.components.media_player import MediaClass, MediaType
-
-from custom_components.ha_bigbox import binary_sensor
 
 LOGGER: Logger = getLogger(__package__)
 
@@ -15,7 +10,19 @@ DOMAIN = "ha_bigbox"
 ATTRIBUTION = "Data provided by http://jsonplaceholder.typicode.com/"
 
 
+class Item(StrEnum):
+    """Key used across library."""
+
+    IS_BIGBOX_LOCKED = "IsBigBoxLocked"
+    IS_BIGBOX_IN_ATTRACT_MODE = "IsBigBoxInAttractMode"
+    IS_BIGBOX = "IsBigBox"
+    IS_PREMIUM = "IsPremium"
+    BIGBOX_CURRENT_THEME = "BigBoxCurrentTheme"
+
+
 class ApiUrl(StrEnum):
+    """Key used across api."""
+
     ACTIVITY_LOG_ENTRIES = "/System/ActivityLog/Entries"
 
     """/StateManager"""
